@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kim Da-in, KAIST Mathematical sciences. </title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&amp;family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&amp;display=swap"
+        rel="stylesheet">
+    <style>
+      /* 모든 요소에 대해 기본 여백 및 패딩을 제거하고 박스 모델을 border-box로 설정 */
+* {
+    margin: 0; /* 기본 여백 제거 */
+    padding: 0; /* 기본 패딩 제거 */
+    box-sizing: border-box; /* 패딩과 테두리를 포함하여 너비 및 높이를 계산 */
+}
+
+/* 본문 스타일 */
+body {
+    font-family: "Julius Sans One", sans-serif; /* 기본 글꼴 설정 */
+    line-height: 1.8; /* 줄 높이 설정 */
+    color: #333; /* 기본 글자 색상 설정 */
+    background-color: #f7f9fc; /* 배경 색상 설정 */
+}
+
+/* 스크롤 부드럽게 설정 */
+html {
+    scroll-behavior: smooth; /* 스크롤 시 부드러운 전환 효과 */
+}
+
+/* 내비게이션 바 스타일 */
+nav {
+    background-color: #00509e; /* 내비게이션 바 배경 색상 */
+    position: fixed; /* 화면에 고정 */
+    width: 100%; /* 전체 너비 */
+    top: 0; /* 상단에 위치 */
+    left: 0; /* 왼쪽에 위치 */
+    padding: 15px; /* 패딩 설정 */
+    z-index: 1000; /* 다른 요소 위에 나타나도록 설정 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 그림자 효과 추가 */
+    display: flex; /* Flexbox 사용하여 내용 정렬 */
+    justify-content: center; /* 내용 중앙 정렬 */
+}
+
+/* 메뉴 아이콘 스타일 */
+.menu-icon {
+    display: none; /* 기본적으로 숨김 */
+    cursor: pointer; /* 클릭 가능함을 나타냄 */
+}
+
+/* 메뉴 아이콘의 막대 스타일 */
+.menu-icon div {
+    width: 30px; /* 막대 너비 */
+    height: 3px; /* 막대 높이 */
+    background-color: white; /* 막대 색상 */
+    margin: 5px 0; /* 막대 간 간격 */
+}
+
+/* 내비게이션 메뉴 스타일 */
+nav ul {
+    display: flex; /* Flexbox 사용하여 가로 정렬 */
+    justify-content: center; /* 중앙 정렬 */
+    list-style: none; /* 기본 리스트 스타일 제거 */
+}
+
+/* 내비게이션 메뉴 항목 스타일 */
+nav ul li {
+    margin: 0 15px; /* 항목 간 간격 설정 */
+}
+
+/* 내비게이션 링크 스타일 */
+nav ul li a {
+    color: white; /* 링크 글자 색상 */
+    text-decoration: none; /* 기본 밑줄 제거 */
+    font-size: 1.1rem; /* 글자 크기 설정 */
+    font-weight: 600; /* 글자 두께 설정 */
+    padding: 10px 15px; /* 패딩 설정 */
+    transition: background-color 0.3s ease; /* 배경색 변화 시 애니메이션 효과 */
+}
+
+/* 내비게이션 링크 호버 스타일 */
+nav ul li a:hover {
+    background-color: #003366; /* 호버 시 배경 색상 */
+    border-radius: 50px; /* 둥근 모서리 설정 */
+}
+
+/* 섹션 기본 스타일 */
+section {
+    padding: 100px 20px; /* 상하 및 좌우 패딩 설정 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+    font-family: 'Poppins', sans-serif; /* 글꼴 설정 */
+}
+
+/* 섹션 제목 스타일 */
+section h2 {
+    font-size: 2.5rem; /* 제목 크기 설정 */
+    margin-bottom: 20px; /* 제목 아래 여백 설정 */
+    color: #00509e; /* 제목 색상 설정 */
+}
+
+/* 섹션 본문 스타일 */
+section p {
+    max-width: 800px; /* 최대 너비 설정 */
+    margin: 0 auto; /* 수평 중앙 정렬 */
+    font-size: 1.1rem; /* 본문 글자 크기 설정 */
+    color: #666; /* 본문 색상 설정 */
+}
+
+/* 홈 섹션 스타일 */
+#home {
+    background-color: #f0f4fa; /* 배경 색상 설정 */
+}
+
+/* 홈 섹션 이미지 스타일 */
+#home img {
+    width: 180px; /* 이미지 너비 설정 */
+    border-radius: 50%; /* 이미지 둥글게 설정 */
+    margin-bottom: 20px; /* 이미지 아래 여백 설정 */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* 이미지 그림자 효과 */
+}
+
+/* 연구, 출판 및 도서 섹션 배경 색상 설정 */
+#research,
+#publications,
+#books {
+    background-color: #e6effc; /* 배경 색상 설정 */
+}
+
+/* 이력서 및 연락처 섹션 배경 색상 설정 */
+#cv,
+#contact {
+    background-color: #f0f4fa; /* 배경 색상 설정 */
+}
+
+/* 연락처 섹션 스타일 */
+#contact {
+    background-color: #e6effc; /* 배경 색상 설정 */
+    padding: 40px 20px; /* 패딩 조정 */
+    border-radius: 10px; /* 모서리 둥글게 설정 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
+}
+
+/* 연락처 섹션 레이블 스타일 */
+#contact label {
+    display: block; /* 레이블을 블록 요소로 설정 */
+    margin-bottom: 10px; /* 레이블과 입력란 사이 간격 설정 */
+    font-weight: 600; /* 레이블 두께 설정 */
+}
+
+/* 연락처 섹션 텍스트 영역 스타일 */
+#contact textarea {
+    width: 100%; /* 너비 100% */
+    padding: 15px; /* 패딩 설정 */
+    margin-bottom: 10px; /* 아래 여백 설정 */
+    border: 1px solid #ccc; /* 테두리 설정 */
+    border-radius: 5px; /* 모서리 둥글게 설정 */
+    font-size: 1rem; /* 글자 크기 설정 */
+    resize: vertical; /* 세로로만 크기 조정 가능 */
+}
+
+/* 연락처 섹션 버튼 스타일 */
+#contact button {
+    padding: 10px 20px; /* 패딩 설정 */
+    border: none; /* 테두리 제거 */
+    background-color: #00509e; /* 배경 색상 설정 */
+    color: white; /* 글자 색상 설정 */
+    border-radius: 50px; /* 둥근 모서리 설정 */
+    cursor: pointer; /* 클릭 가능함을 나타냄 */
+    transition: background-color 0.3s ease; /* 배경색 변화 시 애니메이션 효과 */
+}
+
+/* 연락처 섹션 버튼 호버 스타일 */
+#contact button:hover {
+    background-color: #003366; /* 호버 시 배경 색상 */
+}
+
+/* 추가 텍스트 스타일 */
+#contact p {
+    margin-top: 10px; /* 버튼과 텍스트 사이 간격 설정 */
+    color: #666; /* 텍스트 색상 설정 */
+    font-size: 1rem; /* 폰트 크기 설정 */
+}
+
+/* 버튼 링크 스타일 */
+a.button {
+    display: inline-block; /* 인라인 블록으로 설정 */
+    margin-top: 20px; /* 위쪽 여백 설정 */
+    padding: 10px 30px; /* 패딩 설정 */
+    background-color: #00509e; /* 배경 색상 설정 */
+    color: white; /* 글자 색상 설정 */
+    border-radius: 50px; /* 둥근 모서리 설정 */
+    text-decoration: none; /* 밑줄 제거 */
+    transition: background-color 0.3s ease; /* 배경색 변화 시 애니메이션 효과 */
+}
+
+/* 버튼 링크 호버 스타일 */
+a.button:hover {
+    background-color: #003366; /* 호버 시 배경 색상 */
+}
+
+/* 연락처 섹션 텍스트 영역 스타일 (오타 수정) */
+form textarea {
+    width: 100%; /* 너비 100% */
+    padding: 15px; /* 패딩 설정 */
+    margin-bottom: 10px; /* 아래 여백 설정 */
+    border: 1px solid #ccc; /* 테두리 설정 */
+    border-radius: 50px; /* 둥글게 설정 */
+    font-size: 1rem; /* 글자 크기 설정 */
+    resize: vertical; /* 세로로만 크기 조정 가능 */
+}
+
+/* 폼 버튼 스타일 */
+form button {
+    padding: 10px 20px; /* 패딩 설정 */
+    border: none; /* 테두리 제거 */
+    background-color: #00509e; /* 배경 색상 설정 */
+    color: white; /* 글자 색상 설정 */
+    border-radius: 50px; /* 둥글게 설정 */
+    cursor: pointer; /* 클릭 가능함을 나타냄 */
+    transition: background-color 0.3s ease; /* 배경색 변화 시 애니메이션 효과 */
+}
+
+/* 폼 버튼 호버 스타일 */
+form button:hover {
+    background-color: #003366; /* 호버 시 배경 색상 */
+}
+
+/* 아코디언 스타일 */
+.accordion {
+    background-color: #00509e; /* 배경 색상 설정 */
+    color: white; /* 글자 색상 설정 */
+    cursor: pointer; /* 클릭 가능함을 나타냄 */
+    padding: 15px; /* 패딩 설정 */
+    text-align: left; /* 텍스트 왼쪽 정렬 */
+    outline: none; /* 테두리 제거 */
+    border: none; /* 테두리 제거 */
+    width: 100%; /* 너비 100% */
+    font-size: 1.1rem; /* 글자 크기 설정 */
+    transition: background-color 0.3s ease; /* 배경색 변화 시 애니메이션 효과 */
+}
+
+/* 아코디언 활성화 스타일 및 호버 효과 */
+.accordion.active,
+.accordion:hover {
+    background-color: #003366; /* 활성화 및 호버 시 배경 색상 */
+}
+
+/* 아코디언 패널 스타일 */
+.panel {
+    padding: 0 15px; /* 좌우 패딩 설정 */
+    display: none; /* 기본적으로 숨김 */
+    overflow: hidden; /* 내용 넘침 방지 */
+    background-color: #f0f4fa; /* 배경 색상 설정 */
+}
+
+/* 아코디언 패널 본문 스타일 */
+.panel p {
+    line-height: 1.7; /* 줄 간격 설정 */
+    padding: 30px 0; /* 상하 패딩 설정 */
+}
+
+/* 푸터 스타일 */
+footer {
+    background-color: #00509e; /* 배경 색상 설정 */
+    color: white; /* 글자 색상 설정 */
+    text-align: center; /* 중앙 정렬 */
+    padding: 20px 0; /* 상하 패딩 설정 */
+    position: relative; /* 상대적 위치 */
+    bottom: 0; /* 하단에 위치 */
+    width: 100%; /* 전체 너비 */
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    nav {
+        justify-content: space-between; /* 공간 균형 잡기 */
+    }
+
+    nav ul {
+        flex-direction: column; /* 세로 방향으로 정렬 */
+        display: none; /* 기본적으로 숨김 */
+        align-items: flex-end; /* 오른쪽 정렬 */
+        text-align: right; /* 텍스트 오른쪽 정렬 */
+        margin-right: -10px; /* 오른쪽 여백 조정 */
+        margin-bottom: 20px; /* 아래 여백 설정 */
+    }
+
+    nav ul.active {
+        display: flex; /* 활성화 시 Flexbox로 표시 */
+    }
+
+    .menu-icon {
+        display: block; /* 메뉴 아이콘 표시 */
+    }
+}
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <ul id="menu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#cv">CV</a></li>
+            <li><a href="#publications">Publications</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#books">Recommended Books</a></li>
+        </ul>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home">
+        <img src="./images/kdi.jpg" alt="Profile Picture">
+        <h2>Da-in Kim</h2>
+        <p>Hello, I'm Da-in Kim, a renowned mathematician specializing in algebraic geometry and cryptography.</p>
+        <a href="#research" class="button">Learn More</a>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research">
+        <h2>Research</h2>
+        <p>Current Research Topics: Quantum Computing, Cryptography, Mathematical Modeling in Biological Systems.</p>
+        <a href="#" class="button">View My Research</a>
+    </section>
+
+    <!-- Curriculum Vitae Section -->
+    <section id="cv">
+        <h2>Curriculum Vitae</h2>
+        <p>Education: Ph.D. in Mathematics from Harvard University, Fields Medalist, 2020.</p>
+        <a href="#" class="button">Download CV (PDF)</a>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications">
+        <h2>Publications</h2>
+        <p>Recent Papers: "Quantum Algorithms in Cryptography" and "Mathematical Models in Evolutionary Biology."</p>
+        <a href="#" class="button">View Publications</a>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact</h2>
+        <form>
+            <label for="message">Send me a message:</label>
+            <textarea id="message" name="message" rows="4" placeholder="Your message here..."></textarea>
+            <button type="submit">Send</button>
+        </form>
+        <p>If you have any questions or inquiries, feel free to reach out!</p>
+    </section>
+
+    <!-- Recommended Books Section -->
+    <section id="books">
+        <h2>Recommended Books</h2>
+        <p>Books I Recommend: "The Art of Mathematics" and "Quantum Physics for Beginners."</p>
+        <a href="#" class="button">View All Books</a>
+    </section>
+
+    <!-- Accordion Menu Section -->
+    <section>
+        <h2>Additional Topics</h2>
+        <button class="accordion">Algebraic Geometry</button>
+        <div class="panel">
+            <p>Algebraic Geometry explores the relationships between algebraic expressions and geometric structures,
+                often involving high-dimensional spaces.</p>
+        </div>
+        <button class="accordion">Cryptography</button>
+        <div class="panel">
+            <p>Cryptography focuses on secure communication techniques, ensuring data confidentiality and integrity
+                through mathematical principles.</p>
+        </div>
+        <button class="accordion">Mathematical Modeling</button>
+        <div class="panel">
+            <p>Mathematical Modeling involves creating abstract models to simulate real-world systems, enhancing
+                understanding and decision-making processes.</p>
+        </div>
+        <button class="accordion">Quantum Computing</button>
+        <div class="panel">
+            <p>Quantum Computing harnesses the principles of quantum mechanics to solve complex problems more
+                efficiently than classical computers.</p>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>© Da-in, Graduate student at KAIST. All rights reserved. </p>
+    </footer>
+
+    <script>
+   // 메뉴 토글 기능을 정의하는 함수
+function toggleMenu() {
+    // HTML 문서에서 'menu'라는 ID를 가진 요소를 가져옴
+    var menu = document.getElementById("menu");
+    // 메뉴에 'active' 클래스를 토글(추가/제거)하여 표시 상태를 변경
+    menu.classList.toggle("active");
+}
+
+// 아코디언 기능 구현
+// 'accordion' 클래스를 가진 모든 요소를 가져옴
+var acc = document.getElementsByClassName("accordion");
+
+// 가져온 아코디언 요소 각각에 대해 반복
+for (let i = 0; i < acc.length; i++) {
+    // 각 아코디언 요소에 클릭 이벤트 리스너 추가
+    acc[i].addEventListener("click", function () {
+        // 클릭된 아코디언의 클래스에 'active'를 토글하여 활성화 상태 변경
+        this.classList.toggle("active");
+        // 클릭된 아코디언의 다음 형제 요소(패널)를 가져옴
+        var panel = this.nextElementSibling;
+        // 패널이 이미 표시되고 있는지 확인
+        if (panel.style.display === "block") {
+            // 패널이 표시 중이면 숨김
+            panel.style.display = "none";
+        } else {
+            // 패널이 숨겨져 있으면 표시
+            panel.style.display = "block";
+        }
+    });
+}
+
+    </script>
+</body>
+
+</html>
